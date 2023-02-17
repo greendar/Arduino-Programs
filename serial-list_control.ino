@@ -5,6 +5,10 @@ const int RED = 11;
 const int GREEN = 10;
 const int BLUE = 9;
 
+int val1;
+int val2;
+int val3;
+
 void setup(){
     Serial.begin(9600);
     Serial.setTimeout(10);
@@ -24,9 +28,9 @@ void loop(){
     if (Serial.available() > 0){
         //expect to receive 3 integers over serial
         //parsInt know full integer is received once comma or newline is seen
-        int val1 = Serial.parseInt();
-        int val2 = Serial.parseInt();
-        int val3 = Serial.parseInt();
+        val1 = Serial.parseInt();
+        val2 = Serial.parseInt();
+        val3 = Serial.parseInt();
 
         //clear out remaining buffer contents
         while (Serial.available()){
