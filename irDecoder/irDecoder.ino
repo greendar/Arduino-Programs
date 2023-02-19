@@ -18,47 +18,6 @@
 3     ED12BF00
 */
 
-//irDecoder.ino
-//From
-//https://www.hackster.io/sainisagar7294/arduino-based-ir-remote-decoder-ac67c4
-
-//I removed the LCD programming
-
-/* hello guys here I am using older versions on Ir library so please download and install all the previous version 
- *  the link to download preferred library is: 
- *  This code is made by Sagar saini/ Youtube: sagar networks
- *  Any questions or queries DM me on instagram Saini_sagar_7294.
- *  Explore my website for more interesting projects: www.circuitkicker.com
- */
-
-//IR CODES
-/*
-1     EF10BF00
-2     EE11BF00
-3     ED12BF00
-*/
-
-//irDecoder.ino
-//From
-//https://www.hackster.io/sainisagar7294/arduino-based-ir-remote-decoder-ac67c4
-
-//I removed the LCD programming
-
-/* hello guys here I am using older versions on Ir library so please download and install all the previous version 
- *  the link to download preferred library is: 
- *  This code is made by Sagar saini/ Youtube: sagar networks
- *  Any questions or queries DM me on instagram Saini_sagar_7294.
- *  Explore my website for more interesting projects: www.circuitkicker.com
- */
-
-//IR CODES
-/*
-1     EF10BF00
-2     EE11BF00
-3     ED12BF00
-*/
-
-
 #include <IRremote.h>
 
 const int RECV_PIN=6;
@@ -82,18 +41,27 @@ void setup(){
 void loop() {
  if (IrReceiver.decode()) {
     auto myRawdata= IrReceiver.decodedIRData.decodedRawData;
-    if(myRawdata == 0xEF10BF00){
-      greenOn();
-    }else if(myRawdata == 0xEF11BF00){
-      blueOn();
-    }else if(myRawdata == 0xEF12BF00){
-      redOn();
-    } else {
-      allOff();
+	Serial.print(IrReceiver.decodedIRData.decodedRawData, HEX);
+    Serial.print("   ");
+    switch(myRawdata){
+      case 0xEF10BF00:
+        greenOn();
+        delay(500);
+        break;
+      case 0xEE11BF00:
+        blueOn();
+        delay(500);
+        break;
+      case 0xED12BF00:
+        redOn();
+        delay(500);
+        break;
+      default:
+        allOff();
+        delay(500);
     }
-    Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
     irrecv.resume(); // Receive the next value
-    delay(100);
+    delay(200);
  }
 }
 
@@ -105,20 +73,20 @@ void greenOn(){
 }
 
 void blueOn(){
-  Serial.println("Blue ON");
+  Serial.println("Blue  ON");
   digitalWrite(green, LOW);
   digitalWrite(blue, HIGH);
   digitalWrite(red, LOW);
 }
 void redOn(){
-  Serial.println("Red ON");
+  Serial.println("Red   ON");
   digitalWrite(green, LOW);
   digitalWrite(blue, LOW);
   digitalWrite(red, HIGH);
 }
 
 void allOff(){
-  Serial.println("All OFF");
+  Serial.println("All   OFF");
   digitalWrite(green, LOW);
   digitalWrite(blue, LOW);
   digitalWrite(red, LOW);
