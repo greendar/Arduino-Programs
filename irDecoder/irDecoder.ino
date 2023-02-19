@@ -1,8 +1,23 @@
 //irDecoder.ino
+//Feb 19, 2023
+
 //From
 //https://www.hackster.io/sainisagar7294/arduino-based-ir-remote-decoder-ac67c4
 
-//I removed the LCD programming
+/* Green
+I removed the LCD programming
+here is a link to a tinkercad version of that runs this code
+https://www.tinkercad.com/things/jRSHZsyinPr-powerful-trug/editel?sharecode=OTDbghaj2IJgt8Gtz82rkzqUy1r8XZXW8T9Q_BuGi3g
+for tinkercad only 1, 2, and 3 on the controller are used
+IR Codes
+1     EF10BF00
+2     EE11BF00
+3     ED12BF00
+
+If you wish to use a different remote or other buttons this project will print out the encoded values on the serial monitor.
+
+Below is the orignial documentation.
+*/
 
 /* hello guys here I am using older versions on Ir library so please download and install all the previous version 
  *  the link to download preferred library is: 
@@ -11,12 +26,7 @@
  *  Explore my website for more interesting projects: www.circuitkicker.com
  */
 
-//IR CODES
-/*
-1     EF10BF00
-2     EE11BF00
-3     ED12BF00
-*/
+
 
 #include <IRremote.h>
 
