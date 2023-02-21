@@ -7,7 +7,9 @@
 /* Green
 I removed the LCD programming
 here is a link to a tinkercad version of that runs this code
+
 https://www.tinkercad.com/things/jRSHZsyinPr-powerful-trug/editel?sharecode=OTDbghaj2IJgt8Gtz82rkzqUy1r8XZXW8T9Q_BuGi3g
+
 for tinkercad only 1, 2, and 3 on the controller are used
 IR Codes
 1     EF10BF00
